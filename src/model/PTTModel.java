@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class PTTModel{ 
 
 	private ClassDirector cdSession;
-	private Administrator adminSession;
+	private Admin adminSession;
 	private PTTDirector pttSession;
 	private ArrayList<ClassDirector> classDirectors = new ArrayList<>();
 	private File_IO fileIO;
@@ -26,8 +26,8 @@ public class PTTModel{
 		this.classDirectors.add(cdSession); // allows access to list of requirements for each session
 	}
 
-	public void newAdministratorSession(){ // Creates temp object for user session
-		Administrator adminSession = new Administrator();
+	public void newAdminSession(){ // Creates temp object for user session
+		Admin adminSession = new Admin();
 	}
 
 	public ArrayList<ClassDirector> getClassDirectors(){
@@ -42,7 +42,7 @@ public class PTTModel{
 		return this.cdSession;
 	}
 
-	public Administrator getAdminSession(){
+	public Admin getAdminSession(){
 		return this.adminSession;
 	}
 
@@ -52,5 +52,9 @@ public class PTTModel{
 
 	public File_IO getFileIO(){
 		return this.fileIO;
+	}
+
+	public ListOfStaff getListOfStaff(){
+		return this.listOfStaff;
 	}
 }

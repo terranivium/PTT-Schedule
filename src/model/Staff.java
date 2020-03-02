@@ -82,6 +82,10 @@ public class Staff{
 		return this.numClasses < this.minClasses;
 	}
 
+	public void print(){
+		
+	}
+
 	public boolean overMaxClasses(){
 		return this.numClasses > this.maxClasses;
 	}

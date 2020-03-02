@@ -23,4 +23,8 @@ public class Class{
 	public int getClassesPerWeek(){
 		return this.classesPerWeek;
 	}
+
+	public void print(){
+
+	}
 }

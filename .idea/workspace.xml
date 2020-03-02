@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9a62f9ba-9986-4a78-83af-c5f3759adbf7" name="Default Changelist" comment="" />
+    <list default="true" id="9a62f9ba-9986-4a78-83af-c5f3759adbf7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/PTTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PTTController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Administrator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Class.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ClassDirector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ClassDirector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/File_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/File_IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ListOfClassAssignments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ListOfClassAssignments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ListOfClassRequirements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ListOfClassRequirements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ListOfStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ListOfStaff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PTTModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PTTModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Staff.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1YYMNoyYlClIAGve64uklqjHvVR" />
   <component name="PropertiesComponent">
@@ -50,10 +72,22 @@
       <option name="presentableId" value="Default" />
       <updated>1583115036996</updated>
       <workItem from="1583115041309" duration="1128000" />
+      <workItem from="1583149296881" duration="3616000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

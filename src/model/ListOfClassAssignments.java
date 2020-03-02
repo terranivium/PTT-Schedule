@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 public class ListOfClassAssignments{ // Idea for PTT directors list to approve
 	
 	private ArrayList<Class> allStaffAssignments = new ArrayList<>();
@@ -10,11 +12,11 @@ public class ListOfClassAssignments{ // Idea for PTT directors list to approve
 		this.allStaffAssignments = allStaffAssignments;
 	}
 
-	public void addAllAssignedClasses(ListOfStaff master){ // retrieve all classes assigned to every staff member and combine to single list
-		for(Staff staff:master){
-			for(Class assigned:staff.getAssignedClasses()){
-				this.allStaffAssignments.add(assigned);
-			}
-		}
-	}
+//	public void addAllAssignedClasses(ListOfStaff master){ // retrieve all classes assigned to every staff member and combine to single list
+//		for(Staff staff:master){
+//			for(Class assigned:staff.getAssignedClasses()){
+//				this.allStaffAssignments.add(assigned);
+//			}
+//		}
+//	}
 }

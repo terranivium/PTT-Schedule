@@ -36,16 +36,15 @@ public class File_IO {
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
-            if(br != null){
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    System.err.println("ERROR! Could not close reader.");
+			if (br != null) {
+				try {
+					br.close();
+				} catch (IOException e) {
+					System.err.println("ERROR! Could not close reader.");
 
-                }
-            }
-            System.out.println("--- File Reading Finished ---");
-        }
+				}
+			}
+			System.out.println("--- File Reading Finished ---");
 		}
 	}
 	

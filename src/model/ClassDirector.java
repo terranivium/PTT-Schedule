@@ -18,12 +18,4 @@ public class ClassDirector{
 	public void subClassRequirement(Class subRequirement){
 		this.listOfClassRequirements.remove(subRequirement);
 	}
-
-	public Class searchClass(String currSearch){
-		for(Class selClass:this.listOfClassRequirements){ // .find function which will return a Class rather than a String
-			if(class.getName().contains(currSearch)){
-				return class;
-			}
-		}
-	}
 }

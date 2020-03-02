@@ -23,22 +23,22 @@ public class ListOfStaff{
 	}
 
 	public String find(String search){
-		for(Staff curVal : listOfRequirements){
+		for(Staff curVal : this.listOfStaff){
 			if(curVal.getName().contains(search)){
 				return curVal.print();
 			}
 			if(curVal.getSubjectArea().contains(search)){
 				return curVal.print();
 			}
-			if(curVal.getMaxClasses().contains(search)){
-				return curVal.print();
-			}
-			if(curVal.getMinClasses().contains(search)){
-				return curVal.print();
-			}
-			if(curVal.getNumClasses().contains(search)){
-				return curVal.print();
-			}
+//			if(curVal.getMaxClasses().contains(search)){
+//				return curVal.print();
+//			}
+//			if(curVal.getMinClasses().contains(search)){
+//				return curVal.print();
+//			}
+//			if(curVal.getNumClasses().contains(search)){
+//				return curVal.print();
+//			}
 			if(curVal.getAssignedClasses().contains(search)){
 				return curVal.print();
 			}
@@ -53,8 +53,8 @@ public class ListOfStaff{
 	}
 
 	public void print(){
-		for(Staff printVal : listOfRequirements){
-			System.out.print(printVal.print() + "\n");
+		for(Staff printVal : this.listOfStaff){
+			printVal.print();
 		}
 	}
 }
