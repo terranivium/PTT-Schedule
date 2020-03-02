@@ -20,7 +20,7 @@ public class File_IO {
 			this.headers = read.split("\\s+");
 			while ((read = br.readLine()) != null) { // while there is another line in the txt file to read
 				String[] attributes = read.split("\\s+");
-				this.listOfStaff.add(new Staff(attributes[0], attributes[1], attributes[2], attributes[3]));
+				//this.listOfStaff.add(new Staff(attributes[0], attributes[1], attributes[2], attributes[3]));
 			}
 			System.out.println("File successfully read.");
 		} 
@@ -31,10 +31,6 @@ public class File_IO {
 
 		catch (IOException e) {
 			System.err.println("ERROR! Please check the file directory has been entered correctly or that the file exists.");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
 		} finally {
 			if (br != null) {
 				try {

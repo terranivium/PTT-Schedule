@@ -22,13 +22,13 @@ public class ListOfStaff{
 		this.listOfStaff.remove(subStaff);
 	}
 
-	public String find(String search){
+	public void find(String search){
 		for(Staff curVal : this.listOfStaff){
 			if(curVal.getName().contains(search)){
-				return curVal.print();
+				curVal.print();
 			}
 			if(curVal.getSubjectArea().contains(search)){
-				return curVal.print();
+				curVal.print();
 			}
 //			if(curVal.getMaxClasses().contains(search)){
 //				return curVal.print();
@@ -40,16 +40,19 @@ public class ListOfStaff{
 //				return curVal.print();
 //			}
 			if(curVal.getAssignedClasses().contains(search)){
-				return curVal.print();
+				curVal.print();
 			}
 		}
-		return "Your search has returned empty...";
+		// view no results returned
 	}
 
 	public Staff findStaff(String search){
-		if(curVal.getName().equals(search)){
-			return curVal;
+		for(Staff curVal : this.listOfStaff){
+			if(curVal.getName().equals(search)){
+				return curVal;
+			}
 		}
+		return null;
 	}
 
 	public void print(){

@@ -79,7 +79,7 @@ public class PTTView{
 
 	public void classError(){ // General error for issue adding class
 		System.out.println();
-		Sysetm.out.println("Error on new class requirement input, please try again...");
+		System.out.println("Error on new class requirement input, please try again...");
 	}
 
 	public void removeClassRequirement(){ // When class director wants to remove a class

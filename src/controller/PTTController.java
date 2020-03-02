@@ -65,7 +65,8 @@ public class PTTController{
 				this.systemInput.nextLine();
 				if(this.readInput == 1){
 					this.view.addClassRequirement();
-					this.stringChecker = systemInput.nextLine(); // Checkes string input
+					this.stringChecker = this.systemInput.nextLine(); // Checks string input
+					this.readInput = this.systemInput.nextInt();
 					try {
 						this.model.getCdSession().newClassRequirement(new Class(this.stringChecker, this.readInput)); //this should create a new Class in class requirements
 					} catch(Exception e){

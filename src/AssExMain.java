@@ -8,6 +8,6 @@ public class AssExMain{
 		PTTView view = new PTTView(model);
 		PTTController controller = new PTTController(model, view);
 
-		controller.runtTimeMenu();
+		controller.runtimeMenu();
 	}
 }
