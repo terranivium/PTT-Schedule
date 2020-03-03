@@ -12,7 +12,8 @@ public class PTTController{
 	private PTTModel model;
 	private PTTView view;
 	private Scanner systemInput = new Scanner(System.in); // User input instance
-	private int readInput; // Holds user input for condition checks
+	private int readInput; // Holds user menu input for condition checks
+	private int intChecker; // int for class creation and queries
 	private String stringChecker; // String search query story
 
 	public PTTController(PTTModel model, PTTView view){
@@ -24,7 +25,7 @@ public class PTTController{
 		this.model.initFileIO();
 	}
 
-	public void runtimeMenu(){
+	public void runtimeMenu() throws InterruptedException {
 		try{
 			this.initFileHandling();
 		} catch(Exception e){
@@ -35,7 +36,7 @@ public class PTTController{
 			this.readInput = this.systemInput.nextInt();
 			this.systemInput.nextLine();
 			if (this.readInput == 1) { // Class Director Mode
-				this.view.drawClassDirectorSelect();
+				this.model.newClassDirectorSession(); // Create new ClassDirector
 				this.runtimeClassDirector();
 			} else if (this.readInput == 2) {
 				this.view.drawAdminSelect();
@@ -54,85 +55,108 @@ public class PTTController{
 		} while (this.readInput != 4);
 	}
 
-	public void runtimeClassDirector(){
+	public void runtimeClassDirector() throws InterruptedException {
+		this.view.drawClassDirectorSelect();
 		do {
 			this.readInput = this.systemInput.nextInt();
 			this.systemInput.nextLine();
 			if (this.readInput == 1) {
-				this.model.newClassDirectorSession(); // Create new ClassDirector
 				this.view.drawClassDirectorCreate(); // CD Menu
-				this.readInput = this.systemInput.nextInt();
-				this.systemInput.nextLine();
-				if(this.readInput == 1){
-					this.view.addClassRequirement();
-					this.stringChecker = this.systemInput.nextLine(); // Checks string input
+				do {
 					this.readInput = this.systemInput.nextInt();
-					try {
-						this.model.getCdSession().newClassRequirement(new Class(this.stringChecker, this.readInput)); //this should create a new Class in class requirements
-					} catch(Exception e){
-						this.view.classError();
+					this.systemInput.nextLine();
+					if (this.readInput == 1) {
+						this.view.addClassRequirement();
+						do {
+							this.stringChecker = this.systemInput.next(); // Checks string input
+							this.systemInput.nextLine();
+						} while(this.stringChecker.equals(""));
+						do {
+							this.view.addNumClasses();
+							this.intChecker = this.systemInput.nextInt(); // Check input hours
+							this.systemInput.nextLine();
+						} while(this.intChecker <= 0);
+						try {
+							this.model.getCdSession().newClassRequirement(new Class(this.stringChecker, this.intChecker)); //this should create a new Class in class requirements
+						} catch (Exception e) {
+							this.view.classError();
+							Thread.sleep(500);
+							this.runtimeClassDirector();
+						}
+						this.view.confirmClass();
+						Thread.sleep(500);
+						this.runtimeClassDirector();
+					} else if (this.readInput == 2) {
+						this.view.removeClassRequirement();
+						this.stringChecker = systemInput.nextLine();
+						this.model.getCdSession().getListOfClassRequirements().remove(this.model.getCdSession().getListOfClassRequirements().searchClass(this.stringChecker)); // finds Class to remove and then removes it
+						// confirm removal of class
+						this.runtimeClassDirector();
+					} else if (this.readInput == 3) {
+						this.runtimeMenu();
+					} else {
+						this.view.notValid();
+						Thread.sleep(500);
 						this.runtimeClassDirector();
 					}
-					this.view.confirmClass();
-					this.runtimeClassDirector();
-				} else if(this.readInput == 2){
-					this.view.removeClassRequirement();
-					this.stringChecker = systemInput.nextLine();
-					this.model.getCdSession().getListOfClassRequirements().remove(this.model.getCdSession().getListOfClassRequirements().searchClass(this.stringChecker)); // finds Class to remove and then removes it
-					// confirm removal of class
-					this.runtimeClassDirector();
-				} else if(this.readInput == 3){
-					// submit listOfClassRequirements should be done here
-					this.runtimeMenu();
+				} while (this.readInput != 3);
+			} else if (this.readInput == 2) {
+				this.runtimeMenu();
+			} else {
+				this.view.notValid();
+				Thread.sleep(500);
+			}
+		} while (this.readInput != 2);
+	}
+
+	public void runtimeAdmin() throws InterruptedException {
+		// When administrator menu option chosen
+		this.model.newAdminSession();
+		do {
+			this.readInput = this.systemInput.nextInt();
+			this.systemInput.nextLine();
+			if (this.readInput == 1) {
+				if (this.model.getClassDirectors() != null) {
+					for (ClassDirector cd : this.model.getClassDirectors()){
+						Iterator<Class> goThrough = cd.getListOfClassRequirements().getGoThrough();
+						while (goThrough.hasNext()) {
+							Class classE = goThrough.next();
+							classE.print(); // print Class requirement 1..n
+
+							this.view.drawAdminOptions();
+							do{
+								this.stringChecker = this.systemInput.nextLine();
+								this.systemInput.nextLine();
+								this.model.getListOfStaff().find(stringChecker); // allow admin to search for appropriate staff
+								this.view.readyToAssign();
+								this.stringChecker = this.systemInput.next();
+								this.systemInput.nextLine();
+							} while (!this.stringChecker.equals("Y"));
+							for(;;){
+								this.view.drawAdminNameWait();
+								this.stringChecker = this.systemInput.nextLine();
+								this.systemInput.nextLine();
+								try{
+									this.model.getListOfStaff().findStaff(stringChecker).assignClass(classE, cd.getListOfClassRequirements());
+								} catch{
+									break;///////////////////////////////////////
+								}
+							}
+						}
+					}
 				} else {
-					this.view.notValid();
-					this.view.drawClassDirectorCreate();
+					this.view.noClassDirectors();
+					Thread.sleep(500);
+					this.runtimeMenu();
 				}
 			} else if (this.readInput == 2) {
 				this.runtimeMenu();
 			} else {
 				this.view.notValid();
-				this.view.drawClassDirectorSelect();
+				Thread.sleep(500);
+				this.view.drawAdminSelect();
 			}
 		} while (this.readInput != 2);
-		this.runtimeMenu();
-	}
-
-	public void runtimeAdmin(){
-		// When administrator menu option chosen
-		this.model.newAdminSession();
-		// go through each listOfClass requirements
-		if(this.model.getClassDirectors().get(0) != null){
-			for(ClassDirector cd:this.model.getClassDirectors()){
-				Iterator<Class> goThrough = cd.getListOfClassRequirements().getGoThrough();
-				while(goThrough.hasNext()){
-					Class classE = goThrough.next();
-					classE.print(); // print Class requirement 1
-					for(;;){ // force admin to assign class to staff before progressing
-						this.view.drawAdminOptions();
-						this.stringChecker = this.systemInput.nextLine();
-						this.systemInput.nextLine();
-						this.model.getListOfStaff().find(stringChecker); // allow admin to search for appropriate staff
-						this.view.readyToAssign();
-						this.readInput = this.systemInput.nextInt();
-						this.systemInput.nextLine();
-						if (this.readInput == 1){
-							break;
-						}
-					}
-					for(;;){
-						this.view.drawAdminNameWait();
-						this.stringChecker = this.systemInput.nextLine();
-						this.systemInput.nextLine();
-
-						if(this.model.getListOfStaff().findStaff(stringChecker).assignClass(classE, cd.getListOfClassRequirements())){
-							break;
-						}
-					}
-					this.model.getListOfStaff().findStaff(stringChecker).assignClass(classE, cd.getListOfClassRequirements());
-				}
-			}
-		}
 	}
 
 	public void runtimePTT(){

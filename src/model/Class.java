@@ -8,7 +8,6 @@ public class Class{
 
 	public Class(String name, int classesPerWeek){
 		this.name = name;
-		this.subjectArea = subjectArea;
 		this.classesPerWeek = classesPerWeek;
 	}
 

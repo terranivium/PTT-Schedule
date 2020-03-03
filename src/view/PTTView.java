@@ -40,7 +40,7 @@ public class PTTView{
 		System.out.println("| Class Director Access Mode |");
 		System.out.println("------------------------------");
 		System.out.println("	Select option...");
-		System.out.println("		1. Create list of class requirements");
+		System.out.println("		1. Create/Edit list of class requirements");
 		System.out.println("		2. Return to main menu");
 		System.out.println("--------------------------------------------");
 	}
@@ -53,8 +53,14 @@ public class PTTView{
 		System.out.println("	Select option...");
 		System.out.println("		1. Add class requirement");
 		System.out.println("		2. Remove class requirement");
-		System.out.println("		3. Sumbmit list and exit");
+		System.out.println("		3. Return to CD Menu");
 		System.out.println("-----------------------------------");
+	}
+
+	public void noClassDirectors(){
+		System.out.println();
+		System.out.println("There are currently no lists of requirements...");
+		System.out.println("Please contact Class Director before progressing.");
 	}
 
 	public void drawAdminNameWait(){
@@ -64,12 +70,20 @@ public class PTTView{
 
 	public void readyToAssign(){
 		System.out.println();
-		System.out.println("Press 1 if you are ready to assign Staff member to the role.");
+		System.out.println("To proceed making a class assignment type Y...");
+		System.out.println();
+		System.out.println("To continue searching through staff and class data,");
+		System.out.println("type N...");
 	}
 
 	public void addClassRequirement(){ // When class director wants to add class
 		System.out.println();
 		System.out.println("Please input a new class title...");
+	}
+
+	public void addNumClasses(){ // When class director wants to add class
+		System.out.println();
+		System.out.println("Please input number of classes per week...");
 	}
 
 	public void confirmClass(){ // Confirm class director has added class
@@ -98,9 +112,9 @@ public class PTTView{
 		System.out.println("| PTT Director Access Mode |");
 		System.out.println("----------------------------");
 		System.out.println("	Select option...");
-		System.out.println("		1. View and approve list of class assignments");
+		System.out.println("		1. View and approve class assignments");
 		System.out.println("		2. Return to main menu");
-		System.out.println("---------------------------------------------");
+		System.out.println("----------------------------------------------");
 	}
 
 	public void drawMain(){ // Main/root menu

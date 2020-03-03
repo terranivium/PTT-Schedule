@@ -22,7 +22,7 @@ public class PTTModel{
 	}
 
 	public void newClassDirectorSession(){ // Creates temp object for user session
-		ClassDirector cdSession = new ClassDirector();
+		this.cdSession = new ClassDirector();
 		this.classDirectors.add(cdSession); // allows access to list of requirements for each session
 	}
 
