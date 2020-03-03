@@ -53,7 +53,8 @@ public class PTTView{
 		System.out.println("	Select option...");
 		System.out.println("		1. Add class requirement");
 		System.out.println("		2. Remove class requirement");
-		System.out.println("		3. Return to CD Menu");
+		System.out.println("		3. View current class requirements");
+		System.out.println("		4. Return to CD Menu");
 		System.out.println("-----------------------------------");
 	}
 
@@ -88,12 +89,12 @@ public class PTTView{
 
 	public void confirmClass(){ // Confirm class director has added class
 		System.out.println();
-		System.out.println("New class added to list of requirements.");
+		System.out.println("Class amendment successful.");
 	}
 
 	public void classError(){ // General error for issue adding class
 		System.out.println();
-		System.out.println("Error on new class requirement input, please try again...");
+		System.out.println("Error on class amendment, please try again...");
 	}
 
 	public void removeClassRequirement(){ // When class director wants to remove a class

@@ -65,7 +65,7 @@ public class PTTController{
 				do {
 					this.readInput = this.systemInput.nextInt();
 					this.systemInput.nextLine();
-					if (this.readInput == 1) {
+					if (this.readInput == 1) { // Add class requirement
 						this.view.addClassRequirement();
 						do {
 							this.stringChecker = this.systemInput.next(); // Checks string input
@@ -86,20 +86,34 @@ public class PTTController{
 						this.view.confirmClass();
 						Thread.sleep(500);
 						this.runtimeClassDirector();
-					} else if (this.readInput == 2) {
+					} else if (this.readInput == 2) { // Remove class requirement
 						this.view.removeClassRequirement();
-						this.stringChecker = systemInput.nextLine();
-						this.model.getCdSession().getListOfClassRequirements().remove(this.model.getCdSession().getListOfClassRequirements().searchClass(this.stringChecker)); // finds Class to remove and then removes it
-						// confirm removal of class
+						do {
+							this.stringChecker = this.systemInput.nextLine();
+							this.systemInput.nextLine();
+						} while(this.stringChecker.equals(""));
+						try{
+							this.model.getCdSession().getListOfClassRequirements().remove(this.model.getCdSession().getListOfClassRequirements().searchClass(this.stringChecker)); // finds Class to remove and then removes it
+						} catch(Exception e){
+							this.view.classError();
+							Thread.sleep(500);
+							this.runtimeClassDirector();
+						}
+						this.view.confirmClass();
+						Thread.sleep(500);
 						this.runtimeClassDirector();
-					} else if (this.readInput == 3) {
+					} else if(this.readInput == 3){ // View current list of class requirements
+						this.model.getCdSession().getListOfClassRequirements().print();
+						Thread.sleep(500);
+						this.runtimeClassDirector(); // replace with scanner to check if user wishes to exit
+					} else if (this.readInput == 4) {
 						this.runtimeMenu();
 					} else {
 						this.view.notValid();
 						Thread.sleep(500);
 						this.runtimeClassDirector();
 					}
-				} while (this.readInput != 3);
+				} while (this.readInput != 4);
 			} else if (this.readInput == 2) {
 				this.runtimeMenu();
 			} else {
