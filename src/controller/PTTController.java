@@ -135,30 +135,43 @@ public class PTTController{
 					for (ClassDirector cd : this.model.getClassDirectors()){
 						goThrough = cd.getListOfClassRequirements().getGoThrough();
 						while (goThrough.hasNext()) {
-							Class currentClass = goThrough.next();
-							currentClass.print(); // print Class requirement 1..n
+							Class currentClass = null;
+							try {
+								currentClass = goThrough.next();
+								currentClass.print(); // print Class requirement 1..n
+							} catch(Exception e){
+								System.out.println("End of required classes, please contact PTT Director");
+								this.runtimeMenu();
+							}
 							this.view.drawAdminOptions();
 							do{
-								this.stringChecker = this.systemInput.nextLine();
+								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
 								this.model.getListOfStaff().find(stringChecker); // allow admin to search for appropriate staff
 								this.view.readyToAssign();
 								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
 							} while (!this.stringChecker.equals("Y"));
-							do{
+							boolean successfulAssignment = false;
+							while(!successfulAssignment){
 								this.view.drawAdminNameWait();
-								this.stringChecker = this.systemInput.nextLine();
+								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
 								try{
 									this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, cd.getListOfClassRequirements());
+									successfulAssignment = 	this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, cd.getListOfClassRequirements());
 								} catch (Exception e){
 									this.view.classError();
 									Thread.sleep(500);
 								}
-								this.view.confirmClass();
-								Thread.sleep(500);
-							} while(!this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, cd.getListOfClassRequirements()));
+								if(successfulAssignment) {
+									this.view.confirmClass();
+									Thread.sleep(500);
+									break;
+								} else{
+									this.view.classError();
+								}
+							}
 						}
 					}
 				} else {

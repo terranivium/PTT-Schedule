@@ -87,6 +87,6 @@ public class Staff{
 	}
 
 	public void print(){
-		System.out.printf("Name: %s | Subject: %s | Current classes: %d", this.name, this.subjectArea, this.numClasses);
+		System.out.printf("Name: %s | Subject: %s | Current classes: %d\n", this.name, this.subjectArea, this.numClasses);
 	}
 }

@@ -16,6 +16,6 @@ Anna Art 13 8
 Olivia Medicine 14 9
 Jess Computing 10 10
 Wesley Computing 11 6
-Daniel Engineeering 8 7
+Daniel Engineering 8 7
 Sara Biology 15 6
 John Dentistry 11 8
