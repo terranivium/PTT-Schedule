@@ -12,7 +12,7 @@ public class File_IO {
 
 	void readListOfStaff() { // reads cards from .txt file and creates card objects
 		BufferedReader br = null;
-		String filePath = new File("ListOfStaff.txt").getAbsolutePath(); // finds absolute path based off expected string
+		String filePath = new File("src/2ListOfStaff.txt").getAbsolutePath(); // finds absolute path based off expected string
 		try {
 			br = new BufferedReader(new FileReader(filePath));
 			String read = null;
@@ -20,7 +20,7 @@ public class File_IO {
 			this.headers = read.split("\\s+");
 			while ((read = br.readLine()) != null) { // while there is another line in the txt file to read
 				String[] attributes = read.split("\\s+");
-				//this.listOfStaff.add(new Staff(attributes[0], attributes[1], attributes[2], attributes[3]));
+				this.listOfStaff.add(new Staff(attributes[0], attributes[1], Integer.parseInt(attributes[2]), Integer.parseInt(attributes[3])));
 			}
 			System.out.println("File successfully read.");
 		} 

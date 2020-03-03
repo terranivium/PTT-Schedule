@@ -7,7 +7,7 @@ public class Staff{
 	private int maxClasses;
 	private int minClasses;
 	private int numClasses;
-	private ArrayList<Class> assignedClasses = new ArrayList<>();
+	private ArrayList<Class> assignedClasses = new ArrayList<Class>();
 
 	private String name;
 	private String subjectArea;
@@ -24,8 +24,8 @@ public class Staff{
 	}
 
 	public boolean assignClass(Class assignedClass, ListOfClassRequirements requirements) {
-		if(!assignedClass.getName().equals(this.subjectArea)){
-			System.out.print("This staff member is not part of the " + assignedClass.getName() + " trained staff.");
+		if(!assignedClass.getSubjectArea().equals(this.subjectArea)){
+			System.out.print("This staff member is not part of the " + assignedClass.getSubjectArea() + " staff.");
 			return false;
 		}
 		if(overMaxClasses()){
@@ -82,11 +82,10 @@ public class Staff{
 		return this.numClasses < this.minClasses;
 	}
 
-	public boolean overMaxClasses(){
-		return this.numClasses > this.maxClasses;
+	public void print(){
 	}
 
-	public void print(){
-		System.out.printf("Name: %s | Subject: %s | Current classes: %d", this.name, this.subjectArea, this.numClasses);
+	public boolean overMaxClasses(){
+		return this.numClasses > this.maxClasses;
 	}
 }
