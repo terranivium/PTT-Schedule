@@ -15,7 +15,7 @@ public class PTTController{
 	private int readInput; // Holds user menu input for condition checks
 	private int intChecker; // int for class creation and queries
 	private String stringChecker; // String search query story
-	private Iterator<Class> goThrough;
+	private Class currentClass = null;
 
 	public PTTController(PTTModel model, PTTView view){
 		this.model = model;
@@ -126,23 +126,15 @@ public class PTTController{
 
 	public void runtimeAdmin() throws InterruptedException {
 		// When administrator menu option chosen
-		this.model.newAdminSession();
 		do {
 			this.readInput = this.systemInput.nextInt();
 			this.systemInput.nextLine();
 			if (this.readInput == 1) {
-				if (this.model.getClassDirectors() != null) {
-					for (ClassDirector cd : this.model.getClassDirectors()){
-						goThrough = cd.getListOfClassRequirements().getGoThrough();
-						while (goThrough.hasNext()) {
-							Class currentClass = null;
-							try {
-								currentClass = goThrough.next();
-								currentClass.print(); // print Class requirement 1..n
-							} catch(Exception e){
-								System.out.println("End of required classes, please contact PTT Director");
-								this.runtimeMenu();
-							}
+				if (this.model.getCdSession() != null) {
+						while (this.model.getCdSession().getListOfClassRequirements().getGoThrough().hasNext()){
+							currentClass = this.model.getCdSession().getListOfClassRequirements().getGoThrough().next(); // current class requirement to be assigned
+							System.out.println();
+							currentClass.print(); // print Class requirement 1..n
 							this.view.drawAdminOptions();
 							do{
 								this.stringChecker = this.systemInput.next();
@@ -158,8 +150,8 @@ public class PTTController{
 								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
 								try{
-									this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, cd.getListOfClassRequirements());
-									successfulAssignment = 	this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, cd.getListOfClassRequirements());
+									this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, this.model.getCdSession().getListOfClassRequirements());
+									successfulAssignment = 	this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, this.model.getCdSession().getListOfClassRequirements());
 								} catch (Exception e){
 									this.view.classError();
 									Thread.sleep(500);
@@ -167,13 +159,13 @@ public class PTTController{
 								if(successfulAssignment) {
 									this.view.confirmClass();
 									Thread.sleep(500);
-									break;
 								} else{
 									this.view.classError();
 								}
 							}
 						}
-					}
+						System.out.println("End of required classes, please contact PTT Director");
+						this.runtimeMenu();
 				} else {
 					this.view.noClassDirectors();
 					Thread.sleep(500);

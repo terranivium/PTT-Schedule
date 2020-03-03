@@ -7,6 +7,7 @@ import java.util.Iterator;
 public class ListOfClassRequirements{
 
 	private ArrayList<Class> listOfClassRequirements = new ArrayList<>();
+	private Iterator<Class> goThrough;
 
 	public ListOfClassRequirements(){
 
@@ -17,7 +18,8 @@ public class ListOfClassRequirements{
 	}
 
 	public Iterator<Class> getGoThrough(){
-		return this.listOfClassRequirements.iterator();
+		goThrough = this.listOfClassRequirements.iterator();
+		return this.goThrough;
 	}
 
 	public void add(Class newRequirement) {

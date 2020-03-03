@@ -20,30 +20,17 @@ public class ListOfStaff{
 
 	public void remove(Staff subStaff){
 		this.listOfStaff.remove(subStaff);
-	}
+	} // unused in implementation.
 
 	public void find(String search){
 		for(Staff curVal : this.listOfStaff){
 			if(curVal.getName().contains(search)){
 				curVal.print();
-			}
+			} else System.out.println("No matching staff name.");
 			if(curVal.getSubjectArea().contains(search)){
 				curVal.print();
-			}
-//			if(curVal.getMaxClasses().contains(search)){
-//				return curVal.print();
-//			}
-//			if(curVal.getMinClasses().contains(search)){
-//				return curVal.print();
-//			}
-//			if(curVal.getNumClasses().contains(search)){
-//				return curVal.print();
-//			}
-			if(curVal.getAssignedClasses().contains(search)){
-				curVal.print();
-			}
+			} else System.out.println("No matching subject area.");
 		}
-		// view no results returned
 	}
 
 	public Staff findStaff(String search){

@@ -48,16 +48,6 @@ public class Staff{
 		return true;
 	}
 
-//	public void reassignRequirements(ListOfClassRequirements requirements){ // return all staff members classes to list of requirements, improve
-//		if(this.numClasses == 0){
-//			return;
-//		}
-//		for(Class class:assignedClasses){
-//			requirements.add(class);
-//			assignedClasses.remove(class);
-//		}
-//	}
-
 	public String getName(){
 		return this.name;
 	}
