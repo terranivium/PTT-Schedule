@@ -7,10 +7,9 @@ import java.util.Iterator;
 public class ListOfClassRequirements{
 
 	private ArrayList<Class> listOfClassRequirements = new ArrayList<>();
-	private Iterator<Class> goThrough;
 
 	public ListOfClassRequirements(){
-		this.goThrough = this.listOfClassRequirements.iterator();
+
 	}
 
 	public ArrayList<Class> getListOfClassRequirements(){
@@ -18,7 +17,7 @@ public class ListOfClassRequirements{
 	}
 
 	public Iterator<Class> getGoThrough(){
-		return this.goThrough;
+		return this.listOfClassRequirements.iterator();
 	}
 
 	public void add(Class newRequirement) {
@@ -63,7 +62,7 @@ public class ListOfClassRequirements{
 
 	public Class searchClass(String currSearch){
 		for(Class selClass : this.listOfClassRequirements){ // .find function which will return a Class rather than a String
-			if(selClass.getName().contains(currSearch)) {
+			if(selClass.getName().equals(currSearch)) {
 				return selClass;
 			}
 		}

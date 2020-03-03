@@ -15,6 +15,7 @@ public class PTTController{
 	private int readInput; // Holds user menu input for condition checks
 	private int intChecker; // int for class creation and queries
 	private String stringChecker; // String search query story
+	private Iterator<Class> goThrough;
 
 	public PTTController(PTTModel model, PTTView view){
 		this.model = model;
@@ -132,11 +133,10 @@ public class PTTController{
 			if (this.readInput == 1) {
 				if (this.model.getClassDirectors() != null) {
 					for (ClassDirector cd : this.model.getClassDirectors()){
-						Iterator<Class> goThrough = cd.getListOfClassRequirements().getGoThrough();
+						goThrough = cd.getListOfClassRequirements().getGoThrough();
 						while (goThrough.hasNext()) {
-							Class classE = goThrough.next();
-							classE.print(); // print Class requirement 1..n
-
+							Class currentClass = goThrough.next();
+							currentClass.print(); // print Class requirement 1..n
 							this.view.drawAdminOptions();
 							do{
 								this.stringChecker = this.systemInput.nextLine();
@@ -146,16 +146,19 @@ public class PTTController{
 								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
 							} while (!this.stringChecker.equals("Y"));
-							for(;;){
+							do{
 								this.view.drawAdminNameWait();
 								this.stringChecker = this.systemInput.nextLine();
 								this.systemInput.nextLine();
 								try{
-									this.model.getListOfStaff().findStaff(stringChecker).assignClass(classE, cd.getListOfClassRequirements());
+									this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, cd.getListOfClassRequirements());
 								} catch (Exception e){
-									break;///////////////////////////////////////
+									this.view.classError();
+									Thread.sleep(500);
 								}
-							}
+								this.view.confirmClass();
+								Thread.sleep(500);
+							} while(!this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, cd.getListOfClassRequirements()));
 						}
 					}
 				} else {

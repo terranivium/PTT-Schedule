@@ -20,5 +20,6 @@ public class Class{
 
 	public void print(){
 		System.out.printf("Class Subject: %s | Classes per week: %d", this.name, this.classesPerWeek);
+		System.out.println();
 	}
 }
