@@ -45,7 +45,7 @@ public class ListOfClassRequirements{
 			if(curVal.getName().contains(search)){
 				curVal.print();
 			}
-			if(curVal.getSubjectArea().contains(search)) {
+			if(curVal.getName().contains(search)) {
 				curVal.print();
 			}
 		}

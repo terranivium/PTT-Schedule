@@ -71,8 +71,8 @@ public class PTTController{
 							this.stringChecker = this.systemInput.next(); // Checks string input
 							this.systemInput.nextLine();
 						} while(this.stringChecker.equals(""));
+						this.view.addNumClasses();
 						do {
-							this.view.addNumClasses();
 							this.intChecker = this.systemInput.nextInt(); // Check input hours
 							this.systemInput.nextLine();
 						} while(this.intChecker <= 0);
@@ -93,7 +93,7 @@ public class PTTController{
 							this.systemInput.nextLine();
 						} while(this.stringChecker.equals(""));
 						try{
-							this.model.getCdSession().getListOfClassRequirements().remove(this.model.getCdSession().getListOfClassRequirements().searchClass(this.stringChecker)); // finds Class to remove and then removes it
+							this.model.getCdSession().subClassRequirement(this.model.getCdSession().getListOfClassRequirements().searchClass(this.stringChecker)); // finds Class to remove and then removes it
 						} catch(Exception e){
 							this.view.classError();
 							Thread.sleep(500);
@@ -152,7 +152,7 @@ public class PTTController{
 								this.systemInput.nextLine();
 								try{
 									this.model.getListOfStaff().findStaff(stringChecker).assignClass(classE, cd.getListOfClassRequirements());
-								} catch{
+								} catch (Exception e){
 									break;///////////////////////////////////////
 								}
 							}
