@@ -3,13 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9a62f9ba-9986-4a78-83af-c5f3759adbf7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/controller/PTTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/controller/PTTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/Class.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/Class.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/ListOfClassRequirements.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/ListOfClassRequirements.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/Staff.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/Staff.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/PTTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PTTController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/Class.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ListOfClassRequirements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ListOfClassRequirements.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ListOfStaff.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/ListOfStaff.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/File_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/File_IO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PTTModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PTTModel.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -73,7 +69,7 @@
       <workItem from="1583156953405" duration="2171000" />
       <workItem from="1583171815794" duration="88000" />
       <workItem from="1583205953065" duration="6182000" />
-      <workItem from="1583245561250" duration="5794000" />
+      <workItem from="1583245561250" duration="6034000" />
     </task>
     <servers />
   </component>

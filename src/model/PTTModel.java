@@ -14,6 +14,7 @@ public class PTTModel{
 	// must make it possible to have multiple class directors
 
 	public PTTModel(){
+		this.fileIO = new File_IO();
 	}
 
 	public void initFileIO(){
