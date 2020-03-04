@@ -19,11 +19,15 @@ public class ListOfClassAssignments{ // Idea for PTT directors list to approve
 		String teachingRequest;
 		for(Staff member : this.staff) {
 			if (!member.getAssignedClasses().isEmpty()) {
-				teachingRequest = "NAME: " + member.getName() + "  ||   SUBJECT: " + member.getSubjectArea()
-						+ "\nMIN CLASS:" + member.getMinClasses() + "  ||   MAX CLASS: " + member.getMaxClasses()
-						+ "\n==========================================\n";
+				teachingRequest = "STAFF MEMBER:\n-----------------------------------------------------------------------------------\n" +
+						"NAME: " + member.getName() + "  ||   SUBJECT: " + member.getSubjectArea()
+						+ "\nMIN CLASS: " + member.getMinClasses() + "  ||   MAX CLASS: " + member.getMaxClasses()
+						+ "\n-----------------------------------------------------------------------------------\n" +
+						"-----------------------------------------------------------------------------------\n" +
+						"APPROVED CLASSES:\n" + "-----------------------------------------------------------------------------------\n";
 				for (Class assigned : member.getAssignedClasses()) {
-					teachingRequest += "CLASS: " + assigned.getName() + "  ||   CLASSES/W: " + assigned.getClassesPerWeek() + "\n";
+					teachingRequest += "CLASS: " + assigned.getName() + "  ||   CLASSES/W: " + assigned.getClassesPerWeek() +
+							"\n==========================================\n\n";
 				}
 				this.teachingRequests.add(teachingRequest);
 			}

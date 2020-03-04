@@ -48,28 +48,60 @@ public class File_IO {
 		}
 	}
 
-	protected static void writeApprovedRequests(ArrayList<String> approvedRequests){
+	static void writeApprovedRequests(ArrayList<String> approvedRequests) { // reads cards from .txt file and creates card objects
+		BufferedWriter bw = null;
+		String filePath = new File("src/ListOfStaff.txt").getAbsolutePath(); // finds absolute path based off expected string
 		try {
-			File teachingAssignments = new File("src/ApprovedAssignments.txt");
-			if (teachingAssignments.createNewFile()) {
-				System.out.println("File created: " + teachingAssignments.getName());
-			} else {
-				System.out.println("File already exists.");
+			bw = new BufferedWriter(new FileWriter(filePath));
+			bw.write("////////////////APPROVED TEACHING REQUESTS/////////////////\n"
+			+"==========================================\n\n");
+			for(String request : approvedRequests) {
+				bw.write(request);
 			}
-		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
+			bw.close();
+			System.out.println("Successfully wrote to file.");
 		}
-		try {
-			FileWriter assignmentWriter = new FileWriter("src/ApprovedAssignments.txt");
-			assignmentWriter.write(String.valueOf(approvedRequests));
-			assignmentWriter.close();
-			System.out.println("Successfully wrote to the file.");
-		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
+		catch (FileNotFoundException e) {
+			System.err.println("ERROR! The file located at: [" + filePath + "] does not exist.");
+		}
+		catch (IOException e) {
+			System.err.println("ERROR! Please check the file directory has been entered correctly or that the file exists.");
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					System.err.println("ERROR! Could not close file writer.");
+
+				}
+			}
+			System.out.println("--- File Writing Finished ---");
 		}
 	}
+
+//	protected static void writeApprovedRequests(ArrayList<String> approvedRequests){
+//		try {
+//			File teachingAssignments = new File("src/ApprovedAssignments.txt");
+//			if (teachingAssignments.createNewFile()) {
+//				System.out.println("File created: " + teachingAssignments.getName());
+//			} else {
+//				System.out.println("File already exists.");
+//			}
+//		} catch (IOException e) {
+//			System.out.println("An error occurred.");
+//			e.printStackTrace();
+//		}
+//		try {
+//
+//			FileWriter assignmentWriter = new FileWriter("src/ApprovedAssignments.txt");
+//			assignmentWriter.write(String.valueOf(approvedRequests));
+//			assignmentWriter.close();
+//			System.out.println("Successfully wrote to the file.");
+//		} catch (IOException e) {
+//			System.out.println("An error occurred.");
+//			e.printStackTrace();
+//		}
+//	}
 
 		// Getter methods
 	public ListOfStaff getListOfStaff() {
