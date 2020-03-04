@@ -21,9 +21,8 @@ public class PTTDirector{
 	}
 
 	public void sendToFile(){
-		File_IO fileWriter = new File_IO();
 		if(!approvedRequests.isEmpty()) {
-			fileWriter.writeApprovedRequests(this.approvedRequests);
+			File_IO.writeApprovedRequests(this.approvedRequests);
 		}
 		else{
 			System.err.println("There are no requests to write to the file.");

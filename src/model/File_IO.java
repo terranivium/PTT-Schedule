@@ -48,11 +48,30 @@ public class File_IO {
 		}
 	}
 
-	protected void writeApprovedRequests(ArrayList<String> approvedRequests){
-
+	protected static void writeApprovedRequests(ArrayList<String> approvedRequests){
+		try {
+			File teachingAssignments = new File("src/ApprovedAssignments.txt");
+			if (teachingAssignments.createNewFile()) {
+				System.out.println("File created: " + teachingAssignments.getName());
+			} else {
+				System.out.println("File already exists.");
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+		try {
+			FileWriter assignmentWriter = new FileWriter("src/ApprovedAssignments.txt");
+			assignmentWriter.write(String.valueOf(approvedRequests));
+			assignmentWriter.close();
+			System.out.println("Successfully wrote to the file.");
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
 	}
-	
-	// Getter methods
+
+		// Getter methods
 	public ListOfStaff getListOfStaff() {
 		return this.listOfStaff;
 	}
