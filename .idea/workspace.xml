@@ -2,17 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a62f9ba-9986-4a78-83af-c5f3759adbf7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/controller/PTTController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/controller/PTTController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/ListOfStaff.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/ListOfStaff.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/File_IO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/File_IO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/ListOfClassAssignments.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/ListOfClassAssignments.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/PTTDirector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/PTTDirector.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/PTTModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PTT-ScheduleNEW/model/PTTModel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/PTTController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/PTTController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/File_IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/File_IO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ListOfStaff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ListOfStaff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ListOfClassAssignments.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ListOfClassAssignments.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/PTTDirector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PTTDirector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/PTTModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/PTTModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/PTTView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/PTTView.java" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,21 +32,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1YYMNoyYlClIAGve64uklqjHvVR" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RunManager">
     <configuration name="AssExMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -76,6 +77,7 @@
       <workItem from="1583205953065" duration="6182000" />
       <workItem from="1583245561250" duration="10093000" />
       <workItem from="1583262711943" duration="7741000" />
+      <workItem from="1583333871627" duration="14107000" />
     </task>
     <servers />
   </component>
@@ -94,5 +96,35 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Project_Structure" timestamp="1583335476622">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1583335476622" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1583335472119">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583335472119" />
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom" timestamp="1583347991261">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583347991261" />
+    <state width="1340" height="266" key="GridCell.Tab.0.center" timestamp="1583347991261">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583347991261" />
+    <state width="1340" height="266" key="GridCell.Tab.0.left" timestamp="1583347991261">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583347991261" />
+    <state width="1340" height="266" key="GridCell.Tab.0.right" timestamp="1583347991261">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1340" height="266" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583347991261" />
+    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1583343274022">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="656" y="118" width="607" height="804" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1583343274022" />
   </component>
 </project>

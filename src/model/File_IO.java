@@ -1,6 +1,7 @@
 package model;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class File_IO {
 	private ListOfStaff listOfStaff;
@@ -45,6 +46,10 @@ public class File_IO {
 			}
 			System.out.println("--- File Reading Finished ---");
 		}
+	}
+
+	protected void writeApprovedRequests(ArrayList<String> approvedRequests){
+
 	}
 	
 	// Getter methods

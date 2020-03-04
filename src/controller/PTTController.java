@@ -33,6 +33,7 @@ public class PTTController{
 				this.view.drawAdminSelect();
 				this.runtimeAdmin();
 			} else if (this.readInput == 3) {
+				this.model.newPTTDirectorSession();
 				this.view.drawPTTDirectorSelect();
 				this.runtimePTT();
 			} else if (this.readInput == 4) {
@@ -142,7 +143,7 @@ public class PTTController{
 								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
 								try{
-									this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, this.model.getCdSession().getListOfClassRequirements());
+								//	this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, this.model.getCdSession().getListOfClassRequirements());
 									successfulAssignment = 	this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, this.model.getCdSession().getListOfClassRequirements());
 								} catch (Exception e){
 									this.view.classError();
@@ -173,7 +174,41 @@ public class PTTController{
 		} while (this.readInput != 2);
 	}
 
-	public void runtimePTT(){
+	public void runtimePTT() throws InterruptedException {
+		ListOfClassAssignments teachingRequests = new ListOfClassAssignments(model.getListOfStaff());
+		teachingRequests.bundleAllClasses();
+
+		do {
+			this.readInput = this.systemInput.nextInt();
+			this.systemInput.nextLine();
+			if (this.readInput == 1) {
+				do {
+					if (teachingRequests.getTeachingRequests().isEmpty()) {
+						this.view.noTeachingRequests();
+						this.runtimeMenu();
+					} else {
+						for (String request : teachingRequests.getTeachingRequests()) {
+							this.view.approveRequestScreen();
+							System.out.println(request);
+							this.readInput = this.systemInput.nextInt();
+							this.systemInput.nextLine();
+							if (this.readInput == 1) {
+								this.model.getPttSession().approveRequest(request);
+								//teachingRequests.getTeachingRequests().remove(request);
+							} else if (this.readInput == 2) {
+								this.model.getPttSession().declineRequest(request);							}
+						}
+						teachingRequests.getTeachingRequests().clear();
+					}
+			}while(!teachingRequests.getTeachingRequests().isEmpty());
+				System.out.println("All available teaching requests have been reviewed...");
+				Thread.sleep(1000);
+				System.out.println("Writing to File...");
+				this.model.getPttSession().sendToFile();
+			}
+			this.runtimeMenu();
+		} while (this.readInput != 2);
+
 		// When ptt director menu option chosen
 
 		// sets boolean on listOfClassAssignments, if conditions are met (all requirements met, no issues with staff numOfClasses)

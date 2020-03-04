@@ -113,6 +113,14 @@ public class PTTView{
 		System.out.println("----------------------------------------------");
 	}
 
+	public void drawPTTDirectorApprove(){ // PTT Director Menu 2
+		System.out.println();
+		System.out.println("--------------------------------------------");
+		System.out.println("	Please approve the following teaching requests,");
+		System.out.println("	sent by the administrator");
+		System.out.println("-----------------------------------------------------");
+	}
+
 	public void drawMain(){ // Main/root menu
 		System.out.println();
 		System.out.println("----------------------------------");
@@ -121,7 +129,7 @@ public class PTTView{
 		System.out.println("	Select user mode...");
 		System.out.println("		1. Class Director");
 		System.out.println("		2. Administrator");
-		System.out.println(" 		2. PTT Director");
+		System.out.println(" 		3. PTT Director");
 		System.out.println("		4. Quit");
 		System.out.println("----------------------------------");
 	}
@@ -144,5 +152,18 @@ public class PTTView{
 	public void notValid(){
 		System.out.println();
 		System.out.println("Please select a valid menu option...");
+	}
+
+	public void noTeachingRequests(){
+		System.out.println();
+		System.out.println("There are no teaching requests to approve...");
+	}
+
+	public void approveRequestScreen(){
+		System.out.println();
+		System.out.println("==========================================");
+		System.out.println("Please review the following teaching request.");
+		System.out.println("Press 1 to APPROVE or press 2 to DECLINE.");
+		System.out.println("==========================================");
 	}
 }
