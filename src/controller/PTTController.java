@@ -1,6 +1,5 @@
 package controller;
 
-import java.util.Iterator;
 import java.util.Scanner;
 
 import model.*;
@@ -22,16 +21,7 @@ public class PTTController{
 		this.view = view;
 	}
 
-	public void initFileHandling(){
-		this.model.initFileIO();
-	}
-
 	public void runtimeMenu() throws InterruptedException {
-		try{
-			this.initFileHandling();
-		} catch(Exception e){
-			this.view.fileError();
-		}
 		this.view.drawMain();
 		do {
 			this.readInput = this.systemInput.nextInt();
@@ -90,28 +80,28 @@ public class PTTController{
 					} else if (this.readInput == 2) { // Remove class requirement
 						this.view.removeClassRequirement();
 						do {
-							this.stringChecker = this.systemInput.nextLine();
+							this.stringChecker = this.systemInput.next();
 							this.systemInput.nextLine();
 						} while(this.stringChecker.equals(""));
 						try{
 							this.model.getCdSession().subClassRequirement(this.model.getCdSession().getListOfClassRequirements().searchClass(this.stringChecker)); // finds Class to remove and then removes it
 						} catch(Exception e){
 							this.view.classError();
-							Thread.sleep(500);
+							Thread.sleep(300);
 							this.runtimeClassDirector();
 						}
 						this.view.confirmClass();
-						Thread.sleep(500);
+						Thread.sleep(300);
 						this.runtimeClassDirector();
 					} else if(this.readInput == 3){ // View current list of class requirements
 						this.model.getCdSession().getListOfClassRequirements().print();
-						Thread.sleep(500);
+						Thread.sleep(1000);
 						this.runtimeClassDirector(); // replace with scanner to check if user wishes to exit
 					} else if (this.readInput == 4) {
 						this.runtimeMenu();
 					} else {
 						this.view.notValid();
-						Thread.sleep(500);
+						Thread.sleep(300);
 						this.runtimeClassDirector();
 					}
 				} while (this.readInput != 4);
@@ -119,7 +109,7 @@ public class PTTController{
 				this.runtimeMenu();
 			} else {
 				this.view.notValid();
-				Thread.sleep(500);
+				Thread.sleep(300);
 			}
 		} while (this.readInput != 2);
 	}
@@ -135,11 +125,13 @@ public class PTTController{
 							currentClass = this.model.getCdSession().getListOfClassRequirements().getGoThrough().next(); // current class requirement to be assigned
 							System.out.println();
 							currentClass.print(); // print Class requirement 1..n
-							this.view.drawAdminOptions();
-							do{
+							Thread.sleep(1000);
+							do {
+								this.view.drawAdminOptions();
 								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
 								this.model.getListOfStaff().find(stringChecker); // allow admin to search for appropriate staff
+								Thread.sleep(1000);
 								this.view.readyToAssign();
 								this.stringChecker = this.systemInput.next();
 								this.systemInput.nextLine();
@@ -154,11 +146,11 @@ public class PTTController{
 									successfulAssignment = 	this.model.getListOfStaff().findStaff(stringChecker).assignClass(currentClass, this.model.getCdSession().getListOfClassRequirements());
 								} catch (Exception e){
 									this.view.classError();
-									Thread.sleep(500);
+									Thread.sleep(300);
 								}
 								if(successfulAssignment) {
 									this.view.confirmClass();
-									Thread.sleep(500);
+									Thread.sleep(300);
 								} else{
 									this.view.classError();
 								}
@@ -168,14 +160,14 @@ public class PTTController{
 						this.runtimeMenu();
 				} else {
 					this.view.noClassDirectors();
-					Thread.sleep(500);
+					Thread.sleep(300);
 					this.runtimeMenu();
 				}
 			} else if (this.readInput == 2) {
 				this.runtimeMenu();
 			} else {
 				this.view.notValid();
-				Thread.sleep(500);
+				Thread.sleep(300);
 				this.view.drawAdminSelect();
 			}
 		} while (this.readInput != 2);

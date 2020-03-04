@@ -1,18 +1,20 @@
 package model;
 
-import java.util.ArrayList;
-
 public class PTTModel{ 
 
 	private ClassDirector cdSession;
 	private PTTDirector pttSession;
-	private File_IO fileIO;
+	private File_IO fileIO = new File_IO();
 	private ListOfStaff listOfStaff;
 
 	// must make it possible to have multiple class directors
 
 	public PTTModel(){
-		this.fileIO = new File_IO();
+		try{
+			this.initFileIO();
+		} catch(Exception e){
+			System.out.print("File Read Error...");
+		}
 	}
 
 	public void initFileIO(){
@@ -20,7 +22,7 @@ public class PTTModel{
 		this.listOfStaff = this.fileIO.getListOfStaff();
 	}
 
-	public void newClassDirectorSession(){ // Creates temp object for user session
+	public void newClassDirectorSession(){ // Creates temp object for user sessions
 		this.cdSession = new ClassDirector();
 	}
 

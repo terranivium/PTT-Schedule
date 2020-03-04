@@ -5,6 +5,8 @@ import java.io.*;
 public class File_IO {
 	private ListOfStaff listOfStaff;
 	private String[] headers;
+	private String[] attributes;
+	private String classNames;
 
 	public File_IO() { // Constructor
 		this.listOfStaff = new ListOfStaff();
@@ -19,8 +21,9 @@ public class File_IO {
 			read = br.readLine(); // reads first line of text into a string array
 			this.headers = read.split("\\s+");
 			while ((read = br.readLine()) != null) { // while there is another line in the txt file to read
-				String[] attributes = read.split("\\s+");
+				attributes = read.split("\\s+");
 				this.listOfStaff.add(new Staff(attributes[0], attributes[1], Integer.parseInt(attributes[2]), Integer.parseInt(attributes[3])));
+				classNames += attributes[1] + " ";
 			}
 			System.out.println("File successfully read.");
 		} 
@@ -48,4 +51,6 @@ public class File_IO {
 	public ListOfStaff getListOfStaff() {
 		return this.listOfStaff;
 	}
+
+	public String getClassNames(){ return this.classNames;}
 }

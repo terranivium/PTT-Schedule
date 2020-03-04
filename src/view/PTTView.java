@@ -25,12 +25,9 @@ public class PTTView{
 
 	public void drawAdminOptions(){ // Admin Menu 2
 		System.out.println();
-		System.out.println("-------------------");
-		System.out.println("| Fill Assignment |");
-		System.out.println("-------------------");
-		System.out.println("	Please enter a search query for Staff...");
-		System.out.println("		Recommended: ");
-		System.out.println("		Subject Area, Number of class slots available");
+		System.out.println("--------------------------------------------");
+		System.out.println("	Start by searching for Staff,");
+		System.out.println("	by Subject Area or class slots available...");
 		System.out.println("-----------------------------------------------------");
 	}
 
@@ -71,10 +68,8 @@ public class PTTView{
 
 	public void readyToAssign(){
 		System.out.println();
-		System.out.println("To proceed making a class assignment type Y...");
-		System.out.println();
-		System.out.println("To continue searching through staff and class data,");
-		System.out.println("type N...");
+		System.out.println("To proceed making a class assignment enter Y...");
+		System.out.println("Else enter a new search query...");
 	}
 
 	public void addClassRequirement(){ // When class director wants to add class

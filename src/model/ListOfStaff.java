@@ -24,12 +24,9 @@ public class ListOfStaff{
 
 	public void find(String search){
 		for(Staff curVal : this.listOfStaff){
-			if(curVal.getName().contains(search)){
-				curVal.print();
-			} else System.out.println("No matching staff name.");
 			if(curVal.getSubjectArea().contains(search)){
 				curVal.print();
-			} else System.out.println("No matching subject area.");
+			}
 		}
 	}
 
