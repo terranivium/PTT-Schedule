@@ -1,6 +1,7 @@
 package model;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class File_IO {
 	private ListOfStaff listOfStaff;
@@ -46,8 +47,65 @@ public class File_IO {
 			System.out.println("--- File Reading Finished ---");
 		}
 	}
-	
-	// Getter methods
+
+	static void writeApprovedRequests(ArrayList<String> approvedRequests) { // reads cards from .txt file and creates card objects
+		BufferedWriter bw = null;
+		File file = new File("src/ListOfStaff.txt");
+		String filePath = file.getAbsolutePath(); // finds absolute path based off expected string
+		try {
+			bw = new BufferedWriter(new FileWriter(filePath));
+			bw.write("////////////////APPROVED TEACHING REQUESTS/////////////////\n"
+			+"==========================================\n\n");
+			for(String request : approvedRequests) {
+				bw.write(request);
+			}
+			bw.close();
+			file.renameTo(new File("approvedStaffForTraining.txt")); //renames file name
+			System.out.println("Successfully wrote to file.");
+		}
+		catch (FileNotFoundException e) {
+			System.err.println("ERROR! The file located at: [" + filePath + "] does not exist.");
+		}
+		catch (IOException e) {
+			System.err.println("ERROR! Please check the file directory has been entered correctly or that the file exists.");
+		} finally {
+			if (bw != null) {
+				try {
+					bw.close();
+				} catch (IOException e) {
+					System.err.println("ERROR! Could not close file writer.");
+
+				}
+			}
+			System.out.println("--- File Writing Finished ---");
+		}
+	}
+
+//	protected static void writeApprovedRequests(ArrayList<String> approvedRequests){
+//		try {
+//			File teachingAssignments = new File("src/ApprovedAssignments.txt");
+//			if (teachingAssignments.createNewFile()) {
+//				System.out.println("File created: " + teachingAssignments.getName());
+//			} else {
+//				System.out.println("File already exists.");
+//			}
+//		} catch (IOException e) {
+//			System.out.println("An error occurred.");
+//			e.printStackTrace();
+//		}
+//		try {
+//
+//			FileWriter assignmentWriter = new FileWriter("src/ApprovedAssignments.txt");
+//			assignmentWriter.write(String.valueOf(approvedRequests));
+//			assignmentWriter.close();
+//			System.out.println("Successfully wrote to the file.");
+//		} catch (IOException e) {
+//			System.out.println("An error occurred.");
+//			e.printStackTrace();
+//		}
+//	}
+
+		// Getter methods
 	public ListOfStaff getListOfStaff() {
 		return this.listOfStaff;
 	}

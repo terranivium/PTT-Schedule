@@ -3,20 +3,43 @@ package model;
 import java.util.ArrayList;
 
 public class ListOfClassAssignments{ // Idea for PTT directors list to approve
-	
-	private ArrayList<Class> allStaffAssignments = new ArrayList<>();
-	private boolean pttDirectorSignOff = false;
+	private ArrayList<Staff> staff;
+	private ArrayList<Class> allStaffAssignments;
+	private boolean pttDirectorSignOff;
+	private ArrayList<String> teachingRequests;
 
-	public ListOfClassAssignments(){
-		this.pttDirectorSignOff = pttDirectorSignOff;
-		this.allStaffAssignments = allStaffAssignments;
+	public ListOfClassAssignments(ListOfStaff staff){
+		this.staff = staff.getListOfStaff();
+		this.pttDirectorSignOff = false;
+		this.allStaffAssignments = new ArrayList<>();
+		this.teachingRequests = new ArrayList<String>();
 	}
 
-//	public void addAllAssignedClasses(ListOfStaff master){ // retrieve all classes assigned to every staff member and combine to single list
-//		for(Staff staff:master){
-//			for(Class assigned:staff.getAssignedClasses()){
-//				this.allStaffAssignments.add(assigned);
-//			}
-//		}
-//	}
+	public void bundleAllClasses(){ // retrieve all classes assigned to every staff member and combine to single list
+		String teachingRequest;
+		for(Staff member : this.staff) {
+			if (!member.getAssignedClasses().isEmpty()) {
+				teachingRequest = "STAFF MEMBER:\n-----------------------------------------------------------------------------------\n" +
+						"NAME: " + member.getName() + "  ||   SUBJECT: " + member.getSubjectArea()
+						+ "\nMIN CLASS: " + member.getMinClasses() + "  ||   MAX CLASS: " + member.getMaxClasses()
+						+ "\n-----------------------------------------------------------------------------------\n" +
+						"-----------------------------------------------------------------------------------\n" +
+						"APPROVED CLASSES:\n" + "-----------------------------------------------------------------------------------\n";
+				for (Class assigned : member.getAssignedClasses()) {
+					teachingRequest += "CLASS: " + assigned.getName() + "  ||   CLASSES/W: " + assigned.getClassesPerWeek() +
+							"\n==========================================\n\n";
+				}
+				this.teachingRequests.add(teachingRequest);
+			}
+		}
+	}
+
+	public ArrayList<String> getTeachingRequests(){
+		return this.teachingRequests;
+	}
+
+	public ArrayList<Staff> getStaff(){
+		return this.staff;
+	}
+
 }

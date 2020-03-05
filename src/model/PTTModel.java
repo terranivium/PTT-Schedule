@@ -27,7 +27,7 @@ public class PTTModel{
 	}
 
 	public void newPTTDirectorSession(){ // Creates temp object for user session
-		PTTDirector pttSession = new PTTDirector();
+		this.pttSession = new PTTDirector();
 	}
 
 	public ClassDirector getCdSession(){
