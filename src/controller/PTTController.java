@@ -174,10 +174,9 @@ public class PTTController{
 		} while (this.readInput != 2);
 	}
 
-	public void runtimePTT() throws InterruptedException {
+	public void runtimePTT() throws InterruptedException{
 		ListOfClassAssignments teachingRequests = new ListOfClassAssignments(model.getListOfStaff());
 		teachingRequests.bundleAllClasses();
-
 		do {
 			this.readInput = this.systemInput.nextInt();
 			this.systemInput.nextLine();
@@ -188,6 +187,7 @@ public class PTTController{
 						this.runtimeMenu();
 					} else {
 						for (String request : teachingRequests.getTeachingRequests()) {
+							Thread.sleep(500);
 							this.view.approveRequestScreen();
 							System.out.println(request);
 							this.readInput = this.systemInput.nextInt();

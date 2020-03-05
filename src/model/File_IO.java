@@ -15,7 +15,7 @@ public class File_IO {
 
 	void readListOfStaff() { // reads cards from .txt file and creates card objects
 		BufferedReader br = null;
-		String filePath = new File("src/ListOfStaff.txt").getAbsolutePath(); // finds absolute path based off expected string
+		String filePath = new File("ListOfStaff.txt").getAbsolutePath(); // finds absolute path based off expected string
 		try {
 			br = new BufferedReader(new FileReader(filePath));
 			String read = null;
@@ -50,7 +50,7 @@ public class File_IO {
 
 	static void writeApprovedRequests(ArrayList<String> approvedRequests) { // reads cards from .txt file and creates card objects
 		BufferedWriter bw = null;
-		File file = new File("src/ListOfStaff.txt");
+		File file = new File("ListOfApprovedClasses.txt");
 		String filePath = file.getAbsolutePath(); // finds absolute path based off expected string
 		try {
 			bw = new BufferedWriter(new FileWriter(filePath));
@@ -60,7 +60,6 @@ public class File_IO {
 				bw.write(request);
 			}
 			bw.close();
-			file.renameTo(new File("approvedStaffForTraining.txt")); //renames file name
 			System.out.println("Successfully wrote to file.");
 		}
 		catch (FileNotFoundException e) {
