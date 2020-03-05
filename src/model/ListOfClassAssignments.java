@@ -24,7 +24,7 @@ public class ListOfClassAssignments{ // Idea for PTT directors list to approve
 						+ "\nMIN CLASS: " + member.getMinClasses() + "  ||   MAX CLASS: " + member.getMaxClasses()
 						+ "\n-----------------------------------------------------------------------------------\n" +
 						"-----------------------------------------------------------------------------------\n" +
-						"APPROVED CLASSES:\n" + "-----------------------------------------------------------------------------------\n";
+						"ASSIGNED CLASSES:\n" + "-----------------------------------------------------------------------------------\n";
 				for (Class assigned : member.getAssignedClasses()) {
 					teachingRequest += "CLASS: " + assigned.getName() + "  ||   CLASSES/W: " + assigned.getClassesPerWeek() +
 							"\n==========================================\n\n";

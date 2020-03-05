@@ -15,7 +15,7 @@ public class File_IO {
 
 	void readListOfStaff() { // reads cards from .txt file and creates card objects
 		BufferedReader br = null;
-		String filePath = new File("ListOfStaff.txt").getAbsolutePath(); // finds absolute path based off expected string
+		String filePath = new File("src/ListOfStaff.txt").getAbsolutePath(); // finds absolute path based off expected string
 		try {
 			br = new BufferedReader(new FileReader(filePath));
 			String read = null;
